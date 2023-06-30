@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multicontainer 
+  namespace: default
+spec:
+  containers:
+  - name: busy
+    image: registry.tanzu.dk/busy-box/busybox
+    command:
+      - sleep
+      - "3600"
+  - name: nginx
+    image: registry.tanzu.dk/msoderberg/nginx:1.24
