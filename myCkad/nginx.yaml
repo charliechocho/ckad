@@ -4,11 +4,12 @@ metadata:
   creationTimestamp: null
   labels:
     run: mynginx
-  name: mynginx
+  name: mynginx-2
+  namespace: production
 spec:
   containers:
   - image: registry.tanzu.dk/msoderberg/nginx:1.24
-    name: mynginx
+    name: mynginx-2
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
