@@ -11,13 +11,13 @@ spec:
       value: "password"
     resources:
       requests:
-        memory: "64Mi"
+        memory: "256Mi"
         cpu: "250m"
       limits:
-        memory: "128Mi"
+        memory: "1Gi"
         cpu: "500m"
   - name: wp
-    image: registry.tanzu.dk/msoderberg/wordpress
+    image: registry.tanzu.dk/msoderberg/wordpress:new
     resources:
       requests:
         memory: "64Mi"
