@@ -1,7 +1,6 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  creationTimestamp: null
   labels:
     run: mydb
   name: mydb
@@ -10,7 +9,7 @@ spec:
   containers:
   - image: registry.tanzu.dk/msoderberg/mariadb
     name: mydb
-    resources: {}
+    resources:
     env:
     - name: MARIADB_ROOT_PASSWORD
       value: password
@@ -18,4 +17,4 @@ spec:
   - name: dockersecret
   dnsPolicy: ClusterFirst
   restartPolicy: Always
-status: {}
+
