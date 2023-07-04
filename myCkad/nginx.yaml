@@ -1,7 +1,6 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  creationTimestamp: null
   labels:
     run: mynginx
   name: mynginx-2
@@ -10,7 +9,6 @@ spec:
   containers:
   - image: registry.tanzu.dk/msoderberg/nginx:1.24
     name: mynginx-2
-    resources: {}
+    resources:
   dnsPolicy: ClusterFirst
   restartPolicy: Always
-status: {}
