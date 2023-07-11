@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: nginx-svc
   labels:
-    app: nginx
+    app: my-nginx
   namespace: default 
 spec:
   type: LoadBalancer
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
-    app: nginx
+    app: my-nginx

@@ -23,7 +23,14 @@ metadata:
 spec:
   containers:
   - name: nwp-nginx
-    image: nginx:1.17
+    image: registry.tanzu.dk/msoderberg/nginx:1.25
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
 ...
 
 ---
@@ -36,7 +43,14 @@ metadata:
 spec:
   containers:
   - name: nwp-busybox
-    image: busybox
+    image: registry.tanzu.dk/busy-box/busybox
     command:
     - sleep
     - "3600"
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"

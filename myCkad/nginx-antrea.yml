@@ -1,0 +1,18 @@
+apiVersion: crd.antrea.io/v1alpha1
+kind: NetworkPolicy
+metadata:
+  name: test-anp
+  namespace: default
+spec:
+  priority: 5
+  tier: securityops
+  appliedTo:
+    - podSelector:
+        matchLabels:
+          app: my-nginx
+  ingress:
+    - action: Allow
+      from:
+        - podSelector:
+            matchLabels:
+              role: frontend

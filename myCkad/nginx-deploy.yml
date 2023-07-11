@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
-    app: nginx
-  name: nginx
+    app: my-nginx
+  name: my-nginx
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: my-nginx
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: nginx
+        app: my-nginx
     spec:
+      resources:
       containers:
       - image: registry.tanzu.dk/msoderberg/nginx:1.24
-        name: nginx
+        name: my-nginx
         ports:
         - containerPort: 8080
