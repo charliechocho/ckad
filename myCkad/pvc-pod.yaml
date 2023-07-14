@@ -1,0 +1,30 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nginx-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: Pod
+apiVersion: v1
+metadata:
+   name: nginx-pvc-pod
+spec:
+  volumes:
+    - name: site-storage
+      persistentVolumeClaim:
+        claimName: nginx-pvc
+  containers:
+    - name: pv-container
+      image: registry.tanzu.dk/msoderberg/nginx:1.25
+      ports:
+        - containerPort: 8080
+          name: webserver
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: site-storage
